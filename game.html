@@ -16,13 +16,13 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 
 	var canvas = document.getElementById("canvas"),
 		ctx = canvas.getContext("2d"),
-		width = 500,
-		height = 200,
+		width = 1000,
+		height = 800,
 		player = {
 			x: width / 2,
 			y: height - 15,
-			width: 5,
-			height: 5,
+			width: 10,
+			height: 10,
 			speed: 3,
 			velX: 0,
 			velY: 0,
@@ -39,17 +39,17 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 	boxes.push({
 		x: 0,
 		y: 0,
-		width: 10,
+		width: 1,
 		height: height
 	});
 	boxes.push({
 		x: 0,
-		y: height - 2,
+		y: height,
 		width: width,
 		height: 50
 	});
 	boxes.push({
-		x: width - 10,
+		x: width - 1,
 		y: 0,
 		width: 50,
 		height: height
@@ -68,7 +68,7 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 		height: 80
 	});
 	boxes.push({
-		x: 220,
+		x: 320,
 		y: 100,
 		width: 80,
 		height: 80
@@ -85,21 +85,21 @@ http://www.somethinghitme.com/2013/04/16/creating-a-canvas-platformer-tutorial-p
 
 	function update() {
 		// check keys
-		if (keys[38] || keys[32]) {
+		if (keys[87] || keys[32]) {
 			// up arrow or space
 			if (!player.jumping && player.grounded) {
 				player.jumping = true;
 				player.grounded = false;
-				player.velY = -player.speed * 2;
+				player.velY = -player.speed * 3;
 			}
 		}
-		if (keys[39]) {
+		if (keys[68]) {
 			// right arrow
 			if (player.velX < player.speed) {
 				player.velX++;
 			}
 		}
-		if (keys[37]) {
+		if (keys[65]) {
 			// left arrow
 			if (player.velX > -player.speed) {
 				player.velX--;
